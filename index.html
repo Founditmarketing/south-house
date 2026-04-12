@@ -12,11 +12,15 @@
 <meta property="og:description" content="A fully remote CPA firm founded in 2011. Every return prepared personally by Steven Sorhus, CPA — no hand-offs, no back office, no surprises.">
 <meta property="og:url" content="https://southhousecpa.com">
 <meta property="og:site_name" content="SouthHouse CPA LLC">
+<meta property="og:image" content="https://south-house.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SouthHouse CPA LLC | Precision. Trust. Results.">
 <meta name="twitter:description" content="A fully remote CPA firm. Every return prepared personally by Steven Sorhus, CPA.">
+<meta name="twitter:image" content="https://south-house.vercel.app/og-image.png">
 
 <!-- Favicon (inline SVG) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0c10'/><text x='50' y='68' font-family='Georgia,serif' font-size='48' font-weight='300' fill='%23c9a96e' text-anchor='middle'>SH</text></svg>" type="image/svg+xml">
@@ -697,7 +701,7 @@ footer {
   .comp-header .comp-cell:nth-child(2)::before { display: none; }
 
   /* ── Mobile Font Sizes (WCAG / HIG minimums) ── */
-  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; }
+  .section-label { font-size: 0.8125rem; letter-spacing: 0.2em; }
   .section-desc { font-size: 1rem; }
   .section-title { font-size: clamp(1.8rem, 6vw, 2.6rem); }
   .service-card p, .diff-feature p, .bio-era p, .global-feature p,
@@ -1410,7 +1414,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
   const hero = document.getElementById('heroContent');
   if(hero && window.scrollY < window.innerHeight){
-    hero.style.opacity = 1 - (window.scrollY / (window.innerHeight * 0.7));
+    hero.style.opacity = Math.max(0.1, 1 - (window.scrollY / (window.innerHeight * 0.85)));
   }
 });
 
