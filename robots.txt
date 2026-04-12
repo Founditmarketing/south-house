@@ -1,4 +1,13 @@
+# SouthHouse CPA LLC - robots.txt
+# https://southhousecpa.com
+
 User-agent: *
 Allow: /
+Disallow: /southhouse-v3.html
 
+# Sitemaps
 Sitemap: https://southhousecpa.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+User-agent: Bingbot
+Crawl-delay: 5
