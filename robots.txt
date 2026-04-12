@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://southhousecpa.com/sitemap.xml

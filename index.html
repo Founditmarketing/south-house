@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SouthHouse CPA LLC | Precision. Trust. Results.</title>
+<meta name="description" content="SouthHouse CPA LLC — a fully remote CPA firm founded in 2011, delivering personal, high-caliber tax, bookkeeping, and advisory services worldwide.">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="SouthHouse CPA LLC | Precision. Trust. Results.">
+<meta property="og:description" content="A fully remote CPA firm founded in 2011. Every return prepared personally by Steven Sorhus, CPA — no hand-offs, no back office, no surprises.">
+<meta property="og:url" content="https://southhousecpa.com">
+<meta property="og:site_name" content="SouthHouse CPA LLC">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SouthHouse CPA LLC | Precision. Trust. Results.">
+<meta name="twitter:description" content="A fully remote CPA firm. Every return prepared personally by Steven Sorhus, CPA.">
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0c10'/><text x='50' y='68' font-family='Georgia,serif' font-size='48' font-weight='300' fill='%23c9a96e' text-anchor='middle'>SH</text></svg>" type="image/svg+xml">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://southhousecpa.com">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Franklin:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #0f1218;
+  --bg-tertiary: #0d0f14;
+  --bg-card: #131720;
+  --bg-card-hover: #181d28;
+  --text-primary: #e8e6e1;
+  --text-secondary: #9a9590;
+  --text-muted: #5c5752;
+  --accent: #c9a96e;
+  --accent-dim: #a08550;
+  --accent-glow: rgba(201, 169, 110, 0.15);
+  --accent-bright: #dfc08a;
+  --border: rgba(201, 169, 110, 0.08);
+  --border-hover: rgba(201, 169, 110, 0.2);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Libre Franklin', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans);
+  font-weight: 300; line-height: 1.7; overflow-x: hidden; cursor: default;
+}
+::selection { background: var(--accent); color: var(--bg-primary); }
+
+/* ═══ FILM GRAIN ═══ */
+.film-grain {
+  position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* ═══ CURSOR ═══ */
+.cursor-dot {
+  position: fixed; width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 9999; transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s, background 0.2s; mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px; border: 1px solid var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 9998; transform: translate(-50%,-50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease; opacity: 0.5;
+}
+
+/* ═══ PRELOADER ═══ */
+.preloader {
+  position: fixed; inset: 0; background: var(--bg-primary); z-index: 10000;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 28px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-brand {
+  font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300;
+  color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase;
+}
+.preloader-counter {
+  font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: var(--text-muted);
+  letter-spacing: 0.05em; line-height: 1;
+}
+.preloader-bar {
+  width: 200px; height: 1px; background: var(--border); position: relative; overflow: hidden;
+}
+.preloader-bar-fill {
+  position: absolute; left: 0; top: 0; height: 100%; width: 0;
+  background: var(--accent); transition: width 0.1s linear;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 48px; display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(10,12,16,0.92); backdrop-filter: blur(20px);
+  padding: 14px 48px; border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 1.3rem; font-weight: 400;
+  color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+}
+.nav-brand span { color: var(--text-muted); font-weight: 300; }
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a {
+  font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+  background: var(--accent); transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  padding: 10px 26px !important; border: 1px solid var(--accent) !important;
+  color: var(--accent) !important; transition: all 0.3s ease !important; font-size: 0.66rem !important;
+}
+.nav-cta:hover { background: var(--accent) !important; color: var(--bg-primary) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+.nav-toggle span { width: 24px; height: 1.5px; background: var(--accent); transition: all 0.3s ease; }
+
+/* ═══ HERO ═══ */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-gradient {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(201,169,110,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(10,12,16,1) 0%, transparent 40%);
+}
+canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.3; }
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent);
+}
+/* Mouse spotlight */
+.hero-spotlight {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 50%), rgba(201,169,110,0.04), transparent 70%);
+}
+.hero:hover .hero-spotlight { opacity: 1; }
+
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 920px; padding: 0 24px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 24px;
+  border: 1px solid var(--border); border-radius: 100px;
+  font-size: 0.63rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 40px;
+  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 1.8s forwards;
+}
+.hero-badge-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+
+/* Split word hero animation */
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300;
+  line-height: 1.08; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 28px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-word {
+  display: inline-block; opacity: 0; transform: translateY(60px) rotateX(40deg);
+  animation: wordReveal 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+  transform-origin: bottom center;
+}
+@keyframes wordReveal {
+  to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem); color: var(--text-secondary); font-weight: 300;
+  max-width: 560px; margin: 0 auto 48px; line-height: 1.8;
+  opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease 2.6s forwards;
+}
+.hero-actions {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 2.9s forwards;
+}
+
+/* Magnetic buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px; padding: 16px 40px;
+  background: var(--accent); color: var(--bg-primary); font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,169,110,0.3); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px; padding: 16px 40px;
+  background: transparent; color: var(--text-secondary); font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--border); cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: fadeUp 0.8s ease 3.2s forwards;
+}
+.hero-scroll span { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
+.scroll-line { width: 1px; height: 40px; background: var(--border); position: relative; overflow: hidden; }
+.scroll-line::after {
+  content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%;
+  background: var(--accent); animation: scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown { 0%{top:-100%} 100%{top:100%} }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ═══ ALERT BANNER ═══ */
+.alert-banner {
+  background: linear-gradient(90deg, var(--bg-card), var(--bg-secondary), var(--bg-card));
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--accent);
+  padding: 14px 48px; text-align: center; position: relative; overflow: hidden;
+}
+.alert-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.03), transparent);
+}
+.alert-banner p {
+  font-size: 0.75rem; color: var(--text-secondary); letter-spacing: 0.05em;
+  position: relative; z-index: 1;
+}
+.alert-banner strong { color: var(--accent); font-weight: 500; }
+.alert-banner a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ═══ MARQUEE ═══ */
+.marquee-section {
+  border-bottom: 1px solid var(--border); padding: 18px 0; overflow: hidden; background: var(--bg-secondary);
+}
+.marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
+.marquee-item {
+  display: flex; align-items: center; gap: 40px; padding: 0 40px; white-space: nowrap;
+  font-family: var(--serif); font-size: 0.9rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0.1em;
+}
+.marquee-item .dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ═══ COMMON ═══ */
+section { padding: 120px 48px; position: relative; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 0.63rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+}
+.section-label::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+.section-title {
+  font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 300;
+  line-height: 1.15; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-desc { font-size: 1rem; color: var(--text-secondary); max-width: 560px; line-height: 1.8; font-weight: 300; }
+.max-wrap { max-width: 1240px; margin: 0 auto; }
+
+/* ═══ SERVICES ═══ */
+.services { background: var(--bg-primary); }
+.services-header { max-width: 640px; margin-bottom: 72px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.service-card {
+  background: var(--bg-card); padding: 56px 44px; position: relative; overflow: hidden;
+  transition: all 0.5s ease; border: 1px solid var(--border);
+}
+.service-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-4px); }
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.5s ease;
+}
+.service-card:hover::before { opacity: 1; }
+.service-number {
+  font-family: var(--serif); font-size: 3rem; font-weight: 300; color: var(--accent);
+  opacity: 0.15; line-height: 1; margin-bottom: 28px; transition: opacity 0.3s ease;
+}
+.service-card:hover .service-number { opacity: 0.35; }
+.service-card h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 16px; }
+.service-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 28px; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag {
+  padding: 4px 14px; border: 1px solid var(--border);
+  font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-muted); transition: all 0.3s ease;
+}
+.service-card:hover .service-tag { border-color: var(--border-hover); color: var(--text-secondary); }
+
+/* ═══ COMPARISON TABLE ═══ */
+.comparison { background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.comparison-header { text-align: center; margin-bottom: 64px; }
+.comparison-header .section-label { justify-content: center; }
+.comparison-header .section-desc { margin: 0 auto; text-align: center; }
+.comparison-table { max-width: 900px; margin: 0 auto; }
+.comp-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.comp-row:last-child { border-bottom: none; }
+.comp-header .comp-cell { padding: 20px 28px; }
+.comp-header .comp-cell:first-child { background: transparent; }
+.comp-header .comp-cell:nth-child(2) {
+  background: rgba(201,169,110,0.06); border-left: 1px solid var(--accent);
+  border-right: 1px solid var(--accent); border-top: 1px solid var(--accent);
+  position: relative;
+}
+.comp-header .comp-cell:nth-child(2)::before {
+  content: 'Our Approach'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%) translateY(-100%);
+  background: var(--accent); color: var(--bg-primary); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 16px; white-space: nowrap;
+}
+.comp-cell {
+  padding: 20px 28px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+}
+.comp-cell:first-child {
+  font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--text-primary);
+}
+.comp-cell:nth-child(2) {
+  background: rgba(201,169,110,0.03); border-left: 1px solid rgba(201,169,110,0.1);
+  border-right: 1px solid rgba(201,169,110,0.1); color: var(--accent-bright);
+}
+.comp-cell:nth-child(3) { color: var(--text-muted); }
+.comp-check { color: var(--accent); margin-right: 6px; }
+.comp-x { color: var(--text-muted); margin-right: 6px; opacity: 0.5; }
+
+/* ═══ PROCESS TIMELINE ═══ */
+.process { background: var(--bg-primary); border-top: 1px solid var(--border); }
+.process-header { max-width: 640px; margin-bottom: 72px; }
+.process-timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.process-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border); transform: translateX(-50%); }
+.process-line-fill { position: absolute; left: 50%; top: 0; width: 1px; height: 0; background: var(--accent); transform: translateX(-50%); transition: height 1.5s ease; }
+.process-step { display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; margin-bottom: 64px; position: relative; }
+.process-step:last-child { margin-bottom: 0; }
+.process-step-content { background: var(--bg-card); border: 1px solid var(--border); padding: 36px 32px; transition: all 0.4s ease; }
+.process-step-content:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.process-step:nth-child(odd) .process-step-content { grid-column: 1; text-align: right; }
+.process-step:nth-child(odd) .process-step-empty { grid-column: 3; }
+.process-step:nth-child(even) .process-step-content { grid-column: 3; text-align: left; }
+.process-step:nth-child(even) .process-step-empty { grid-column: 1; }
+.process-step-node {
+  grid-column: 2; width: 48px; height: 48px; border: 1px solid var(--accent);
+  display: flex; align-items: center; justify-content: center; position: relative; z-index: 2;
+  background: var(--bg-primary); font-family: var(--serif); font-size: 1rem;
+  color: var(--accent); font-weight: 400; transition: all 0.4s ease;
+}
+.process-step:hover .process-step-node { background: var(--accent); color: var(--bg-primary); }
+.process-step-content h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--text-primary); margin-bottom: 8px; }
+.process-step-content p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ DIFFERENTIATOR ═══ */
+.differentiator {
+  background: var(--bg-secondary); border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
+}
+.diff-spotlight {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.4s ease;
+  background: radial-gradient(circle 400px at var(--mx, 50%) var(--my, 50%), rgba(201,169,110,0.04), transparent 70%);
+}
+.differentiator:hover .diff-spotlight { opacity: 1; }
+.diff-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+.diff-features { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
+.diff-feature { display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start; }
+.diff-icon {
+  width: 48px; height: 48px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-family: var(--serif); font-size: 1.2rem; font-weight: 300;
+  transition: all 0.3s ease;
+}
+.diff-feature:hover .diff-icon { border-color: var(--accent); background: rgba(201,169,110,0.05); }
+.diff-feature h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--text-primary); margin-bottom: 6px; }
+.diff-feature p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+.diff-card { background: var(--bg-card); border: 1px solid var(--border); padding: 48px; position: relative; }
+.diff-card::before { content: ''; position: absolute; top: -1px; left: 24px; right: 24px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.diff-quote { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--text-primary); line-height: 1.5; margin-bottom: 32px; }
+.diff-quote-mark { font-family: var(--serif); font-size: 4rem; color: var(--accent); opacity: 0.3; line-height: 0.5; margin-bottom: 16px; }
+.diff-author { display: flex; align-items: center; gap: 16px; }
+.diff-author-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.1rem; color: var(--bg-primary); font-weight: 500;
+}
+.diff-author-info h5 { font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
+.diff-author-info p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* ═══ STATS ═══ */
+.stats-section { background: var(--bg-primary); padding: 80px 48px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 1100px; margin: 0 auto; }
+.stat-item { text-align: center; padding: 40px 24px; position: relative; }
+.stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: var(--border); }
+.stat-number { font-family: var(--serif); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; }
+
+/* ═══ TESTIMONIALS ═══ */
+.testimonials {
+  background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.testimonials-header { text-align: center; margin-bottom: 64px; }
+.testimonials-header .section-label { justify-content: center; }
+.testimonials-track-wrap { position: relative; }
+.testimonials-track {
+  display: flex; gap: 24px; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.testimonial-card {
+  flex: 0 0 calc(33.333% - 16px); background: var(--bg-card); border: 1px solid var(--border);
+  padding: 44px 36px; position: relative; min-width: 0;
+}
+.testimonial-stars { color: var(--accent); font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 20px; }
+.testimonial-text {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic;
+  color: var(--text-primary); line-height: 1.6; margin-bottom: 28px;
+}
+.testimonial-author h5 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--text-primary); }
+.testimonial-author p { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 2px; }
+.testimonial-nav {
+  display: flex; justify-content: center; gap: 12px; margin-top: 40px;
+}
+.testimonial-dot {
+  width: 8px; height: 8px; border: 1px solid var(--accent); border-radius: 50%;
+  cursor: pointer; transition: all 0.3s ease; background: transparent;
+}
+.testimonial-dot.active { background: var(--accent); }
+
+/* ═══ BIO ═══ */
+.bio { background: var(--bg-primary); border-top: 1px solid var(--border); }
+.bio-layout { max-width: 1200px; margin: 0 auto; }
+.bio-header { margin-bottom: 64px; }
+.bio-journey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.bio-era {
+  background: var(--bg-card); border: 1px solid var(--border); padding: 40px 32px;
+  position: relative; overflow: hidden; transition: all 0.5s ease;
+}
+.bio-era:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
+.bio-era::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--accent); transform: scaleX(0); transition: transform 0.5s ease; transform-origin: left;
+}
+.bio-era:hover::before { transform: scaleX(1); }
+.bio-era-year { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--accent); opacity: 0.25; margin-bottom: 16px; line-height: 1; }
+.bio-era:hover .bio-era-year { opacity: 0.5; }
+.bio-era h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--text-primary); margin-bottom: 10px; }
+.bio-era p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.7; }
+.bio-era .bio-location {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-dim);
+}
+.bio-credentials {
+  margin-top: 48px; padding: 40px; background: var(--bg-card); border: 1px solid var(--border);
+  display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center;
+}
+.bio-cred-badge {
+  width: 80px; height: 80px; border: 1px solid var(--accent);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 2px;
+}
+.bio-cred-badge span:first-child { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--accent); }
+.bio-cred-badge span:last-child { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+.bio-cred-text h4 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--text-primary); margin-bottom: 8px; }
+.bio-cred-text p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ GLOBAL ═══ */
+.global { background: var(--bg-secondary); border-top: 1px solid var(--border); }
+.global-layout { max-width: 1200px; margin: 0 auto; }
+.global-locations { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.location-tag {
+  display: flex; align-items: center; gap: 8px; padding: 12px 24px;
+  background: var(--bg-card); border: 1px solid var(--border); transition: all 0.3s ease;
+}
+.location-tag:hover { border-color: var(--accent); transform: translateY(-2px); }
+.location-tag .pin { color: var(--accent); font-size: 0.8rem; }
+.location-tag span { font-size: 0.78rem; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.05em; }
+.global-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 64px; }
+.global-feature { background: var(--bg-card); padding: 44px 36px; border: 1px solid var(--border); transition: all 0.4s ease; }
+.global-feature:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
+.global-feature h4 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--text-primary); margin-bottom: 10px; }
+.global-feature p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ TRUST ═══ */
+.trust { background: var(--bg-tertiary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.trust-header { text-align: center; margin-bottom: 64px; }
+.trust-header .section-label { justify-content: center; }
+.trust-header .section-desc { margin: 0 auto; text-align: center; }
+.trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.trust-item {
+  background: var(--bg-card); border: 1px solid var(--border); padding: 40px 28px;
+  text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden;
+}
+.trust-item:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+.trust-icon {
+  width: 56px; height: 56px; margin: 0 auto 20px; border: 1px solid var(--border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: var(--accent); transition: all 0.4s ease;
+}
+.trust-item:hover .trust-icon { border-color: var(--accent); background: rgba(201,169,110,0.05); }
+.trust-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--text-primary); margin-bottom: 8px; }
+.trust-item p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.7; }
+
+/* ═══ PRICING ═══ */
+.pricing { background: var(--bg-primary); border-top: 1px solid var(--border); }
+.pricing-layout { max-width: 900px; margin: 0 auto; text-align: center; }
+.pricing-approaches { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+.pricing-card {
+  background: var(--bg-card); border: 1px solid var(--border); padding: 48px 36px;
+  text-align: left; transition: all 0.4s ease; position: relative;
+}
+.pricing-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+.pricing-card.featured { border-color: var(--accent); }
+.pricing-card.featured::before {
+  content: 'Most Common'; position: absolute; top: -1px; right: 24px;
+  background: var(--accent); color: var(--bg-primary);
+  font-size: 0.58rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 16px;
+}
+.pricing-card h4 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--text-primary); margin-bottom: 12px; }
+.pricing-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.8; }
+.pricing-note { margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); font-style: italic; font-family: var(--serif); }
+
+/* ═══ FAQ ═══ */
+.faq { background: var(--bg-secondary); border-top: 1px solid var(--border); }
+.faq-layout { max-width: 800px; margin: 0 auto; }
+.faq-header { text-align: center; margin-bottom: 56px; }
+.faq-header .section-label { justify-content: center; }
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item { background: var(--bg-card); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s ease; }
+.faq-item.open { border-color: var(--border-hover); }
+.faq-question {
+  padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between;
+  align-items: center; gap: 20px; transition: background 0.3s ease; user-select: none;
+}
+.faq-question:hover { background: var(--bg-card-hover); }
+.faq-question h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--text-primary); }
+.faq-toggle {
+  width: 32px; height: 32px; border: 1px solid var(--border); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  font-family: var(--serif); font-size: 1.2rem; color: var(--accent); transition: all 0.3s ease;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); border-color: var(--accent); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer-inner { padding: 0 32px 28px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.8; }
+
+/* ═══ CTA ═══ */
+.cta-section {
+  padding: 140px 48px; background: var(--bg-primary); border-top: 1px solid var(--border);
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, var(--accent-glow), transparent);
+  pointer-events: none;
+}
+.cta-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.cta-content .section-title { margin-bottom: 24px; }
+.cta-content .section-desc { max-width: 520px; margin: 0 auto 48px; text-align: center; }
+.cta-contact-info { display: flex; gap: 48px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
+.cta-contact-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.cta-contact-label { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
+.cta-contact-value { font-family: var(--serif); font-size: 1.1rem; color: var(--text-primary); text-decoration: none; transition: color 0.3s ease; }
+.cta-contact-value:hover { color: var(--accent); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  padding: 48px; border-top: 1px solid var(--border); background: var(--bg-primary);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+}
+.footer-left { font-family: var(--serif); font-size: 1rem; color: var(--accent); letter-spacing: 0.1em; }
+.footer-center { display: flex; gap: 24px; }
+.footer-center a {
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none; transition: color 0.3s ease;
+}
+.footer-center a:hover { color: var(--accent); }
+.footer-right { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* ═══ BACK TO TOP ═══ */
+.back-to-top {
+  position: fixed; bottom: 32px; right: 32px; z-index: 998;
+  width: 48px; height: 48px; border: 1px solid var(--border);
+  background: rgba(10,12,16,0.9); backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 1.2rem; cursor: pointer;
+  opacity: 0; transform: translateY(20px); transition: all 0.4s ease;
+  text-decoration: none;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { border-color: var(--accent); background: rgba(201,169,110,0.08); }
+.back-to-top svg { width: 18px; height: 18px; }
+.btt-progress {
+  position: absolute; inset: -1px; pointer-events: none;
+}
+.btt-progress svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.btt-progress circle {
+  fill: none; stroke: var(--accent); stroke-width: 1.5;
+  stroke-dasharray: 188; stroke-dashoffset: 188; transition: stroke-dashoffset 0.2s ease;
+}
+
+/* ═══ STICKY MOBILE CTA ═══ */
+.mobile-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  padding: 16px 24px; background: rgba(10,12,16,0.95); backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  transform: translateY(100%); transition: transform 0.4s ease;
+}
+.mobile-cta.visible { transform: translateY(0); }
+.mobile-cta a {
+  display: block; width: 100%; text-align: center; padding: 14px;
+  background: var(--accent); color: var(--bg-primary); font-size: 0.72rem;
+  font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+}
+
+/* ═══ REVEAL ═══ */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .diff-layout { grid-template-columns: 1fr; gap: 48px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2)::after { display: none; }
+  .global-feature-grid, .trust-grid { grid-template-columns: 1fr 1fr; }
+  .bio-journey-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-card { flex: 0 0 calc(50% - 12px); }
+  .process-step { grid-template-columns: 1fr; gap: 0; }
+  .process-line, .process-line-fill { display: none; }
+  .process-step-node { grid-column: 1; width: 100%; height: auto; padding: 12px; margin-bottom: 16px; }
+  .process-step-content { grid-column: 1 !important; text-align: left !important; }
+  .process-step-empty { display: none; }
+  .comp-row { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  section { padding: 80px 24px; }
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links {
+    display: none; position: fixed; inset: 0; background: rgba(10,12,16,0.98);
+    backdrop-filter: blur(20px); flex-direction: column; align-items: center;
+    justify-content: center; gap: 32px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+  .services-grid, .global-feature-grid, .trust-grid, .bio-journey-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item::after { display: none !important; }
+  .pricing-approaches { grid-template-columns: 1fr; }
+  .bio-credentials { grid-template-columns: 1fr; text-align: center; }
+  .bio-cred-badge { margin: 0 auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+  footer { flex-direction: column; text-align: center; }
+  .footer-center { flex-wrap: wrap; justify-content: center; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .mobile-cta { display: block; }
+  .cta-section { padding-bottom: 100px; }
+  .back-to-top { bottom: 80px; }
+  .testimonial-card { flex: 0 0 calc(100% - 0px); }
+  .comp-row { grid-template-columns: 1fr; gap: 8px; }
+  .comp-cell:nth-child(2) { border-left: none; border-right: none; border: 1px solid rgba(201,169,110,0.1); }
+  .comp-header .comp-cell:nth-child(2)::before { display: none; }
+  .alert-banner { padding: 14px 24px; }
+}
+@media (max-width: 480px) { .hero h1 { font-size: 2.4rem; } }
+</style>
+</head>
+<body>
+
+<div class="film-grain"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-brand">SouthHouse</div>
+  <div class="preloader-counter" id="preloaderCounter">0</div>
+  <div class="preloader-bar"><div class="preloader-bar-fill" id="preloaderBar"></div></div>
+</div>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a href="#" class="nav-brand">SouthHouse <span>CPA</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#approach">Approach</a>
+    <a href="#story">Story</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="heroSection">
+  <div class="hero-bg">
+    <canvas id="heroParticles"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-spotlight" id="heroSpotlight"></div>
+  </div>
+  <div class="hero-content" id="heroContent">
+    <div class="hero-badge"><span class="hero-badge-dot"></span> Fully Remote Since 2017</div>
+    <h1 id="heroTitle"></h1>
+    <p class="hero-sub">Every return prepared personally by Steven Sorhus, CPA. No hand-offs, no back office, no surprises — just direct, expert service from anywhere in the world.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary magnetic-btn">Schedule a Consultation →</a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- Alert Banner -->
+<div class="alert-banner">
+  <p><strong>Tax Season Alert:</strong> The IRS is underfunded and understaffed. Expect delays, unexpected notices, and difficulty reaching them. <a href="#contact">We can help. →</a></p>
+</div>
+
+<!-- Marquee -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">Tax Preparation <span class="dot"></span></div>
+    <div class="marquee-item">Bookkeeping <span class="dot"></span></div>
+    <div class="marquee-item">Payroll Processing <span class="dot"></span></div>
+    <div class="marquee-item">Advisory Services <span class="dot"></span></div>
+    <div class="marquee-item">Business Structuring <span class="dot"></span></div>
+    <div class="marquee-item">Year-Round Planning <span class="dot"></span></div>
+    <div class="marquee-item">Compliance <span class="dot"></span></div>
+    <div class="marquee-item">Multi-State Filing <span class="dot"></span></div>
+    <div class="marquee-item">Tax Preparation <span class="dot"></span></div>
+    <div class="marquee-item">Bookkeeping <span class="dot"></span></div>
+    <div class="marquee-item">Payroll Processing <span class="dot"></span></div>
+    <div class="marquee-item">Advisory Services <span class="dot"></span></div>
+    <div class="marquee-item">Business Structuring <span class="dot"></span></div>
+    <div class="marquee-item">Year-Round Planning <span class="dot"></span></div>
+    <div class="marquee-item">Compliance <span class="dot"></span></div>
+    <div class="marquee-item">Multi-State Filing <span class="dot"></span></div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="max-wrap">
+    <div class="services-header reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Comprehensive <em>expertise,</em><br>personal delivery</h2>
+      <p class="section-desc">Every engagement is handled directly by a licensed CPA with 17+ years of experience — from initial consultation to final filing.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-number">01</div>
+        <h3>Tax Preparation</h3>
+        <p>Individual, business, and complex returns with proactive year-round planning to minimize liability and ensure compliance across jurisdictions.</p>
+        <div class="service-tags"><span class="service-tag">Individual</span><span class="service-tag">Business</span><span class="service-tag">Multi-State</span><span class="service-tag">International</span></div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-number">02</div>
+        <h3>Bookkeeping & Payroll</h3>
+        <p>Cloud-based financial tracking and compliant payroll processing — provided in-house or outsourced, depending on your situation.</p>
+        <div class="service-tags"><span class="service-tag">Cloud-Based</span><span class="service-tag">Payroll</span><span class="service-tag">Reconciliation</span></div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-number">03</div>
+        <h3>Advisory & Strategy</h3>
+        <p>Strategic guidance to help you scale, structure, and succeed. From entity selection to growth planning — your financial future, architected.</p>
+        <div class="service-tags"><span class="service-tag">Growth</span><span class="service-tag">Structuring</span><span class="service-tag">Compliance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="comparison">
+  <div class="max-wrap">
+    <div class="comparison-header reveal">
+      <div class="section-label">The Difference</div>
+      <h2 class="section-title">SouthHouse <em>vs.</em> the rest</h2>
+      <p class="section-desc">See how a personal, one-CPA practice compares to the traditional firm model.</p>
+    </div>
+    <div class="comparison-table reveal">
+      <div class="comp-row comp-header">
+        <div class="comp-cell"></div>
+        <div class="comp-cell" style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--accent);">SouthHouse CPA</div>
+        <div class="comp-cell" style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--text-muted);">Traditional Firms</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">Who prepares your return?</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Steven Sorhus, personally</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Back-office associates</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">Who do you contact?</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Direct to Steven's cell</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Secretary or answering service</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">Fee transparency</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Estimate before work begins</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Invoice surprises after the fact</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">Remote capability</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Fully remote since 2017</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Often requires in-person visits</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">International clients</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Served across 6+ countries</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Usually regional only</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell">Growth management</div>
+        <div class="comp-cell"><span class="comp-check">✓</span> Intentionally capped for quality</div>
+        <div class="comp-cell"><span class="comp-x">×</span> Aggressive growth, diluted service</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process" id="process">
+  <div class="max-wrap">
+    <div class="process-header reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Four steps to<br><em>complete clarity</em></h2>
+      <p class="section-desc">A straightforward, transparent engagement process — no confusion, no hidden steps.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-line"></div>
+      <div class="process-line-fill" id="processLineFill"></div>
+      <div class="process-step reveal">
+        <div class="process-step-content"><h4>Initial Consultation</h4><p>A brief conversation to understand your situation, review prior returns, and assess the scope of work. No obligation, no pressure.</p></div>
+        <div class="process-step-node">01</div>
+        <div class="process-step-empty"></div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-empty"></div>
+        <div class="process-step-node">02</div>
+        <div class="process-step-content"><h4>Estimate & Agreement</h4><p>You'll receive a clear fee estimate based on the complexity of your engagement. Work begins only after mutual clarity on scope and cost.</p></div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step-content"><h4>Preparation & Delivery</h4><p>All work is completed personally by Steven Sorhus. Documents are exchanged securely through our encrypted client portal.</p></div>
+        <div class="process-step-node">03</div>
+        <div class="process-step-empty"></div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step-empty"></div>
+        <div class="process-step-node">04</div>
+        <div class="process-step-content"><h4>Year-Round Support</h4><p>Your relationship doesn't end at filing. Proactive planning, IRS correspondence, and ongoing advisory — whenever you need it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Differentiator -->
+<section class="differentiator" id="approach">
+  <div class="diff-spotlight" id="diffSpotlight"></div>
+  <div class="diff-layout">
+    <div class="diff-left reveal">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title">One CPA.<br><em>Your CPA.</em></h2>
+      <p class="section-desc">At SouthHouse CPA, there is no back office. No hand-offs. Every piece of work on your account is done personally by Steven Sorhus.</p>
+      <div class="diff-features">
+        <div class="diff-feature"><div class="diff-icon">→</div><div><h4>Direct Access</h4><p>No secretary, no answering service. Calls and emails go directly to Steven and are answered as soon as practical.</p></div></div>
+        <div class="diff-feature"><div class="diff-icon">∞</div><div><h4>Personally Prepared</h4><p>Many firms pass work to back-office associates while partners act as the face. Here, the person you meet is the person who does the work.</p></div></div>
+        <div class="diff-feature"><div class="diff-icon">◎</div><div><h4>Managed Growth</h4><p>Careful, intentional growth ensures your needs are never compromised by an over-extended practice.</p></div></div>
+      </div>
+    </div>
+    <div class="diff-right reveal reveal-delay-2">
+      <div class="diff-card">
+        <div class="diff-quote-mark">"</div>
+        <p class="diff-quote">The person you meet is the person who sees to your work — from first conversation to final filing.</p>
+        <div class="diff-author">
+          <div class="diff-author-avatar">SS</div>
+          <div class="diff-author-info"><h5>Steven Sorhus, CPA</h5><p>Founder — Since 2011</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item reveal"><div class="stat-number" data-target="17">0</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-target="2011" data-noanimate="true">2011</div><div class="stat-label">Year Founded</div></div>
+    <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-target="50">0</div><div class="stat-label">States Filed</div></div>
+    <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-target="100">0<span style="font-size:0.5em;color:var(--text-muted)">%</span></div><div class="stat-label">Personally Prepared</div></div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="max-wrap">
+    <div class="testimonials-header reveal">
+      <div class="section-label">Client Experiences</div>
+      <h2 class="section-title">What it's like to work<br><em>with SouthHouse</em></h2>
+    </div>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">I've worked with larger firms before — you never get to talk to the person who actually does the work. With Steven, he IS the person. Night and day difference.</p>
+          <div class="testimonial-author"><h5>Small Business Owner</h5><p>Multi-State Filing Client</p></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">We moved overseas and thought we'd have to find a new CPA. Steven didn't miss a beat — everything handled remotely, same quality, same responsiveness.</p>
+          <div class="testimonial-author"><h5>Expat Family</h5><p>International Tax Client</p></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">The fee estimate before we started was exactly what I paid. No hidden charges, no "oh we found additional complexity" surprises. Refreshing.</p>
+          <div class="testimonial-author"><h5>Freelance Consultant</h5><p>Individual Tax Client</p></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Got a scary-looking IRS letter. Steven identified it as a phishing scam within minutes. Saved me from a costly mistake. That's the value of a real CPA relationship.</p>
+          <div class="testimonial-author"><h5>E-Commerce Founder</h5><p>Advisory & Tax Client</p></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">I text Steven directly when I have a question. He responds the same day. Try doing that with a Big Four firm. This is how accounting should work.</p>
+          <div class="testimonial-author"><h5>Restaurant Owner</h5><p>Bookkeeping & Tax Client</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-nav" id="testimonialNav"></div>
+  </div>
+</section>
+
+<!-- Bio -->
+<section class="bio" id="story">
+  <div class="bio-layout">
+    <div class="bio-header reveal">
+      <div class="section-label">The Story</div>
+      <h2 class="section-title">From a basement desk<br><em>to the world</em></h2>
+      <p class="section-desc">SouthHouse CPA's journey is one of grit, adaptability, and an unwavering commitment to personal service — no matter where the road led.</p>
+    </div>
+    <div class="bio-journey">
+      <div class="bio-journey-grid">
+        <div class="bio-era reveal reveal-delay-1">
+          <div class="bio-era-year">2011</div><h4>The Beginning</h4>
+          <p>Founded with an old desk in a basement and a self-built PC. When a client needed the restroom and was pointed to a tree out back, it was time for a change.</p>
+          <div class="bio-location">◆ Kirksville, MO</div>
+        </div>
+        <div class="bio-era reveal reveal-delay-2">
+          <div class="bio-era-year">2013</div><h4>Main Street</h4>
+          <p>A new partnership and a beautiful rented office on Kirksville's main thoroughfare. The physical setting now matched the expertise behind it.</p>
+          <div class="bio-location">◆ Kirksville, MO</div>
+        </div>
+        <div class="bio-era reveal reveal-delay-3">
+          <div class="bio-era-year">2016</div><h4>Going Global</h4>
+          <p>Following family to the Caribbean, then a village outside Edinburgh. Clients adapted to digital workflows — and every single one stayed.</p>
+          <div class="bio-location">◆ St. Kitts → Scotland</div>
+        </div>
+        <div class="bio-era reveal reveal-delay-4">
+          <div class="bio-era-year">Now</div><h4>Remote By Design</h4>
+          <p>Based in Knoxville, serving clients across the U.S. and internationally. The firm that learned flexibility the hard way now embraces it as a superpower.</p>
+          <div class="bio-location">◆ Knoxville, TN</div>
+        </div>
+      </div>
+      <div class="bio-credentials reveal">
+        <div class="bio-cred-badge"><span>CPA</span><span>Licensed</span></div>
+        <div class="bio-cred-text">
+          <h4>Steven Sorhus, M.Acc., CPA</h4>
+          <p>Master of Accountancy from Truman State University. Career launched in 2008 at a mid-sized regional firm — auditing municipalities, working with international clients, and earning his CPA license before founding SouthHouse in 2011.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Global -->
+<section class="global">
+  <div class="global-layout">
+    <div class="global-header reveal">
+      <div class="section-label">Global Reach</div>
+      <h2 class="section-title">Remote by design,<br><em>not by circumstance</em></h2>
+      <p class="section-desc">Since transitioning to a fully remote model in 2017, SouthHouse CPA has served clients across the U.S. and around the world.</p>
+      <div class="global-locations">
+        <div class="location-tag"><span class="pin">◆</span><span>United States</span></div>
+        <div class="location-tag"><span class="pin">◆</span><span>Spain</span></div>
+        <div class="location-tag"><span class="pin">◆</span><span>Switzerland</span></div>
+        <div class="location-tag"><span class="pin">◆</span><span>Hong Kong</span></div>
+        <div class="location-tag"><span class="pin">◆</span><span>St. Kitts</span></div>
+        <div class="location-tag"><span class="pin">◆</span><span>Scotland</span></div>
+      </div>
+    </div>
+    <div class="global-feature-grid">
+      <div class="global-feature reveal reveal-delay-1"><h4>Multi-State Competency</h4><p>Competent filing income tax returns in most states with procedures in place for any jurisdiction.</p></div>
+      <div class="global-feature reveal reveal-delay-2"><h4>Digital-First Workflow</h4><p>Secure document transmission, virtual meetings, and cloud-based collaboration — from anywhere, anytime.</p></div>
+      <div class="global-feature reveal reveal-delay-3"><h4>Any Time Zone</h4><p>A practice forged across four time zones. Whether you're stateside or abroad, we work on your schedule.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust -->
+<section class="trust">
+  <div class="trust-layout">
+    <div class="trust-header reveal">
+      <div class="section-label">Security & Trust</div>
+      <h2 class="section-title">Your data. <em>Protected.</em></h2>
+      <p class="section-desc">We take the security of your financial information as seriously as the accuracy of your returns.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal reveal-delay-1"><div class="trust-icon">🔒</div><h4>Encrypted Portal</h4><p>All documents exchanged through a secure, encrypted client portal — never by unsecured email.</p></div>
+      <div class="trust-item reveal reveal-delay-2"><div class="trust-icon">🛡</div><h4>Phishing Defense</h4><p>We help you identify suspicious communications, IRS impersonation scams, and compliance fraud attempts.</p></div>
+      <div class="trust-item reveal reveal-delay-3"><div class="trust-icon">☁</div><h4>Cloud-Native</h4><p>Modern, cloud-based systems with redundant backups ensure your data is safe, accessible, and always recoverable.</p></div>
+      <div class="trust-item reveal reveal-delay-4"><div class="trust-icon">✓</div><h4>IRS Representation</h4><p>If the IRS comes calling — with their delays, notices, and contact difficulties — we handle it directly on your behalf.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+  <div class="pricing-layout">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center;">Transparent Fees</div>
+      <h2 class="section-title">No surprises.<br><em>Ever.</em></h2>
+      <p class="section-desc" style="max-width:520px;margin:0 auto;">Nobody wants an unexpected bill. Two straightforward billing approaches, estimated before we begin.</p>
+    </div>
+    <div class="pricing-approaches">
+      <div class="pricing-card reveal reveal-delay-1"><h4>Monthly Retainer</h4><p>Ideal for ongoing engagements. After an initial interview, we estimate the scope and propose a monthly amount. If the scale changes, we renegotiate — always fair, always transparent.</p></div>
+      <div class="pricing-card featured reveal reveal-delay-2"><h4>Per-Engagement</h4><p>For most individual clients. We review prior returns, conduct a brief interview, and provide an estimate during or shortly after the initial consultation. One invoice upon completion.</p></div>
+    </div>
+    <p class="pricing-note reveal">Estimates are provided before work begins. No engagement starts without mutual clarity on scope and fee.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-layout">
+    <div class="faq-header reveal">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Straight <em>answers</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><h4>I don't live near Knoxville. Can you still help me?</h4><div class="faq-toggle">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely. SouthHouse CPA has been fully remote since 2017 and currently serves clients across the U.S. and internationally — including Spain, Switzerland, Hong Kong, and St. Kitts. All documents are exchanged through a secure portal, and meetings happen virtually.</div></div></div>
+      <div class="faq-item reveal reveal-delay-1"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><h4>Will anyone else work on my account?</h4><div class="faq-toggle">+</div></div><div class="faq-answer"><div class="faq-answer-inner">No. Every piece of work on your account is completed personally by Steven Sorhus, CPA. There is no back office, no associates, and no hand-offs. The person you speak with is the person who prepares your returns.</div></div></div>
+      <div class="faq-item reveal reveal-delay-2"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><h4>How quickly will you respond to my calls or emails?</h4><div class="faq-toggle">+</div></div><div class="faq-answer"><div class="faq-answer-inner">SouthHouse CPA does not use a secretary or answering service. Your calls and emails go directly to Steven's cell phone and are answered as soon as practical — typically the same day.</div></div></div>
+      <div class="faq-item reveal reveal-delay-3"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><h4>How do I know what I'll pay before we start?</h4><div class="faq-toggle">+</div></div><div class="faq-answer"><div class="faq-answer-inner">After an initial interview and review of your situation, you'll receive a clear estimate. No work begins until both parties agree on scope and fee. If circumstances change mid-engagement, we renegotiate openly.</div></div></div>
+      <div class="faq-item reveal reveal-delay-4"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><h4>I received a suspicious letter from the IRS. Can you help?</h4><div class="faq-toggle">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Yes. Business owners are frequently targeted by phishing attacks and compliance scams disguised as legitimate IRS correspondence. We help you identify what's real and what isn't, and handle legitimate IRS notices directly on your behalf.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-content reveal">
+    <div class="section-label" style="justify-content:center;">Let's Talk</div>
+    <h2 class="section-title">Ready for a CPA who<br><em>actually knows your name?</em></h2>
+    <p class="section-desc">Schedule a consultation and experience what personal, expert-level service looks like.</p>
+    <a href="https://southhousecpa.taxdome.com/" class="btn-primary magnetic-btn" target="_blank">Schedule Consultation →</a>
+    <div class="cta-contact-info">
+      <div class="cta-contact-item"><span class="cta-contact-label">Location</span><span class="cta-contact-value">Knoxville, TN (Remote)</span></div>
+      <div class="cta-contact-item"><span class="cta-contact-label">Founded</span><span class="cta-contact-value">2011</span></div>
+      <div class="cta-contact-item"><span class="cta-contact-label">Credentials</span><span class="cta-contact-value">M.Acc. · Licensed CPA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">SouthHouse CPA LLC</div>
+  <div class="footer-center">
+    <a href="#services">Services</a><a href="#process">Process</a><a href="#story">Story</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </div>
+  <div class="footer-right">© 2026 SouthHouse CPA LLC. All rights reserved.</div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top" id="backToTop">
+  <div class="btt-progress"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="29" id="bttCircle"/></svg></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<!-- Mobile CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="https://southhousecpa.taxdome.com/" target="_blank">Schedule Consultation →</a>
+</div>
+
+<script>
+// ═══ PRELOADER WITH COUNTER ═══
+let preloaderCount = 0;
+const counterEl = document.getElementById('preloaderCounter');
+const barEl = document.getElementById('preloaderBar');
+const preloaderInterval = setInterval(() => {
+  preloaderCount += Math.random() * 8 + 2;
+  if (preloaderCount >= 100) preloaderCount = 100;
+  counterEl.textContent = Math.floor(preloaderCount);
+  barEl.style.width = preloaderCount + '%';
+  if (preloaderCount >= 100) clearInterval(preloaderInterval);
+}, 60);
+window.addEventListener('load', () => {
+  preloaderCount = 100;
+  counterEl.textContent = '100';
+  barEl.style.width = '100%';
+  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+});
+
+// ═══ SPLIT WORD HERO ANIMATION ═══
+const heroHTML = 'Your CPA,<br><em>Not a Firm Number</em>';
+const heroTitle = document.getElementById('heroTitle');
+const tempDiv = document.createElement('div');
+tempDiv.innerHTML = heroHTML;
+let wordIndex = 0;
+function processNode(node) {
+  let result = '';
+  node.childNodes.forEach(child => {
+    if (child.nodeType === 3) {
+      child.textContent.split(/(\s+)/).forEach(part => {
+        if (part.trim()) {
+          result += `<span class="hero-word" style="animation-delay:${1.8 + wordIndex * 0.12}s">${part}</span>`;
+          wordIndex++;
+        } else { result += part; }
+      });
+    } else if (child.nodeName === 'BR') { result += '<br>'; }
+    else if (child.nodeName === 'EM') {
+      result += '<em>';
+      child.textContent.split(/(\s+)/).forEach(part => {
+        if (part.trim()) {
+          result += `<span class="hero-word" style="animation-delay:${1.8 + wordIndex * 0.12}s">${part}</span>`;
+          wordIndex++;
+        } else { result += part; }
+      });
+      result += '</em>';
+    }
+  });
+  return result;
+}
+heroTitle.innerHTML = processNode(tempDiv);
+
+// ═══ CURSOR ═══
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a,button,.service-card,.pricing-card,.location-tag,.faq-question,.bio-era,.trust-item,.testimonial-card,.comp-row').forEach(el => {
+  el.addEventListener('mouseenter', () => { dot.style.width='10px'; dot.style.height='10px'; ring.style.width='50px'; ring.style.height='50px'; ring.style.borderColor='var(--accent-bright)'; });
+  el.addEventListener('mouseleave', () => { dot.style.width='6px'; dot.style.height='6px'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='var(--accent)'; });
+});
+
+// ═══ MOUSE SPOTLIGHT ═══
+document.getElementById('heroSection').addEventListener('mousemove', e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  document.getElementById('heroSpotlight').style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  document.getElementById('heroSpotlight').style.setProperty('--my', (e.clientY - r.top) + 'px');
+});
+document.querySelector('.differentiator').addEventListener('mousemove', e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  document.getElementById('diffSpotlight').style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  document.getElementById('diffSpotlight').style.setProperty('--my', (e.clientY - r.top) + 'px');
+});
+
+// ═══ MAGNETIC BUTTONS ═══
+document.querySelectorAll('.magnetic-btn').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width / 2;
+    const y = e.clientY - r.top - r.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+});
+
+// ═══ NAV & SCROLL ═══
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  document.getElementById('nav').classList.toggle('scrolled', y > 60);
+  const mobileCta = document.getElementById('mobileCta');
+  if (mobileCta) mobileCta.classList.toggle('visible', y > 600);
+
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  btt.classList.toggle('visible', y > 500);
+  const scrollPercent = y / (document.body.scrollHeight - window.innerHeight);
+  const circle = document.getElementById('bttCircle');
+  if (circle) circle.style.strokeDashoffset = 188 - (188 * scrollPercent);
+});
+
+// ═══ PARTICLES ═══
+const canvas = document.getElementById('heroParticles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+for (let i = 0; i < 60; i++) {
+  particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+    vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+    size: Math.random()*1.5+0.5, opacity: Math.random()*0.5+0.1 });
+}
+function drawParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach((p,i) => {
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width) p.vx*=-1;
+    if(p.y<0||p.y>canvas.height) p.vy*=-1;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle=`rgba(201,169,110,${p.opacity})`; ctx.fill();
+    for(let j=i+1;j<particles.length;j++){
+      const dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);
+      ctx.strokeStyle=`rgba(201,169,110,${0.06*(1-dist/120)})`;ctx.lineWidth=0.5;ctx.stroke();}
+    }
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+// ═══ SCROLL REVEAL ═══
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// ═══ COUNTERS ═══
+document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+  new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !entry.target.dataset.animated){
+        entry.target.dataset.animated='true';
+        if(entry.target.dataset.noanimate) return;
+        const target=parseInt(entry.target.dataset.target);
+        const suffix=entry.target.innerHTML.includes('%')?'<span style="font-size:0.5em;color:var(--text-muted)">%</span>':'';
+        let c=0; const inc=target/60;
+        const t=setInterval(()=>{c+=inc;if(c>=target){c=target;clearInterval(t);}entry.target.innerHTML=Math.floor(c)+suffix;},25);
+      }
+    });
+  }, {threshold:0.5}).observe(el);
+});
+
+// ═══ PROCESS LINE ═══
+const processLineFill = document.getElementById('processLineFill');
+if(processLineFill){
+  new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting) setTimeout(()=>{processLineFill.style.height='100%';},300);});
+  },{threshold:0.1}).observe(document.querySelector('.process-timeline'));
+}
+
+// ═══ TESTIMONIALS CAROUSEL ═══
+const track = document.getElementById('testimonialsTrack');
+const cards = track.querySelectorAll('.testimonial-card');
+const navContainer = document.getElementById('testimonialNav');
+let currentSlide = 0;
+let cardsPerView = 3;
+function updateCardsPerView() {
+  if(window.innerWidth <= 768) cardsPerView = 1;
+  else if(window.innerWidth <= 1024) cardsPerView = 2;
+  else cardsPerView = 3;
+}
+updateCardsPerView();
+const totalSlides = Math.ceil(cards.length / cardsPerView);
+for(let i=0;i<totalSlides;i++){
+  const d = document.createElement('div');
+  d.className = 'testimonial-dot' + (i===0?' active':'');
+  d.onclick = () => goToSlide(i);
+  navContainer.appendChild(d);
+}
+function goToSlide(n) {
+  currentSlide = n;
+  const cardWidth = cards[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${n * cardsPerView * cardWidth}px)`;
+  navContainer.querySelectorAll('.testimonial-dot').forEach((d,i) => d.classList.toggle('active', i===n));
+}
+window.addEventListener('resize', () => { updateCardsPerView(); goToSlide(0); });
+setInterval(() => { goToSlide((currentSlide + 1) % totalSlides); }, 5000);
+
+// ═══ SMOOTH ANCHORS ═══
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t){t.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('navLinks').classList.remove('open');}
+  });
+});
+
+// ═══ HERO PARALLAX ═══
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('heroContent');
+  if(hero && window.scrollY < window.innerHeight){
+    hero.style.opacity = 1 - (window.scrollY / (window.innerHeight * 0.7));
+  }
+});
+
+// ═══ ACTIVE NAV STATE ═══
+const sectionEls = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id=entry.target.getAttribute('id');
+      navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+id?'var(--accent)':'';});
+    }
+  });
+},{threshold:0.3,rootMargin:'-80px 0px -50% 0px'}).observe && sectionEls.forEach(s=>
+  new IntersectionObserver(entries=>{entries.forEach(entry=>{
+    if(entry.isIntersecting){const id=entry.target.getAttribute('id');navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+id?'var(--accent)':'';});}
+  });},{threshold:0.3,rootMargin:'-80px 0px -50% 0px'}).observe(s)
+);
+</script>
+</body>
+</html>
