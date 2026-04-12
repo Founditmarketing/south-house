@@ -21,6 +21,11 @@
 <!-- Favicon (inline SVG) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0c10'/><text x='50' y='68' font-family='Georgia,serif' font-size='48' font-weight='300' fill='%23c9a96e' text-anchor='middle'>SH</text></svg>" type="image/svg+xml">
 
+<!-- Mobile App Meta -->
+<meta name="theme-color" content="#0a0c10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <!-- Canonical -->
 <link rel="canonical" href="https://southhousecpa.com">
 
@@ -55,6 +60,12 @@ body {
   font-weight: 300; line-height: 1.7; overflow-x: hidden; cursor: default;
 }
 ::selection { background: var(--accent); color: var(--bg-primary); }
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 
 /* ═══ FILM GRAIN ═══ */
 .film-grain {
@@ -627,8 +638,10 @@ footer {
 }
 
 /* ═══ REVEAL ═══ */
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* Content is VISIBLE by default — JS adds .reveal-init to enable animation */
+.reveal { opacity: 1; transform: none; }
+.reveal-init .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-init .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
@@ -660,7 +673,8 @@ footer {
     justify-content: center; gap: 32px;
   }
   .nav-links.open { display: flex; }
-  .nav-toggle { display: flex; }
+  .nav-links a { font-size: 0.875rem; min-height: 44px; display: flex; align-items: center; }
+  .nav-toggle { display: flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
   .services-grid, .global-feature-grid, .trust-grid, .bio-journey-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-item::after { display: none !important; }
@@ -668,17 +682,60 @@ footer {
   .bio-credentials { grid-template-columns: 1fr; text-align: center; }
   .bio-cred-badge { margin: 0 auto; }
   .cursor-dot, .cursor-ring { display: none; }
+  .film-grain { display: none; }
   footer { flex-direction: column; text-align: center; }
   .footer-center { flex-wrap: wrap; justify-content: center; }
+  .footer-center a { font-size: 0.8rem; min-height: 44px; display: inline-flex; align-items: center; padding: 8px 12px; }
   .hero-actions { flex-direction: column; align-items: center; }
   .mobile-cta { display: block; }
+  .mobile-cta a { font-size: 0.875rem; min-height: 48px; display: flex; align-items: center; justify-content: center; }
   .cta-section { padding-bottom: 100px; }
   .back-to-top { bottom: 80px; }
   .testimonial-card { flex: 0 0 calc(100% - 0px); }
   .comp-row { grid-template-columns: 1fr; gap: 8px; }
   .comp-cell:nth-child(2) { border-left: none; border-right: none; border: 1px solid rgba(201,169,110,0.1); }
   .comp-header .comp-cell:nth-child(2)::before { display: none; }
-  .alert-banner { padding: 14px 24px; }
+
+  /* ── Mobile Font Sizes (WCAG / HIG minimums) ── */
+  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; }
+  .section-desc { font-size: 1rem; }
+  .section-title { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+  .service-card p, .diff-feature p, .bio-era p, .global-feature p,
+  .trust-item p, .pricing-card p, .faq-answer-inner,
+  .process-step-content p, .comp-cell { font-size: 0.938rem; }
+  .service-card h3, .diff-feature h4, .bio-era h4, .global-feature h4,
+  .trust-item h4, .pricing-card h4, .faq-question h4,
+  .process-step-content h4 { font-size: 1.2rem; }
+  .service-tag { font-size: 0.75rem; padding: 6px 16px; }
+  .btn-primary, .btn-ghost { font-size: 0.875rem; padding: 16px 36px; min-height: 48px; }
+  .nav-cta { font-size: 0.875rem !important; padding: 14px 28px !important; min-height: 44px; }
+  .stat-label { font-size: 0.75rem; }
+  .testimonial-text { font-size: 1.05rem; }
+  .testimonial-author h5 { font-size: 0.875rem; }
+  .testimonial-author p { font-size: 0.8rem; }
+  .bio-era-year { font-size: 1.8rem; }
+  .bio-era .bio-location { font-size: 0.75rem; }
+  .diff-quote { font-size: 1.25rem; }
+  .diff-author-info h5 { font-size: 0.875rem; }
+  .diff-author-info p { font-size: 0.8rem; }
+  .cta-contact-label { font-size: 0.75rem; }
+  .cta-contact-value { font-size: 1rem; }
+  .pricing-note { font-size: 0.938rem; }
+  .footer-right { font-size: 0.8rem; }
+  .hero-sub { font-size: 1rem; }
+  .hero-badge { font-size: 0.75rem; }
+
+  /* ── Touch Target Minimums (44×44px) ── */
+  .alert-banner { padding: 16px 24px; }
+  .alert-banner a { display: inline-block; padding: 12px 4px; min-height: 44px; line-height: 1.5; font-size: 0.875rem; }
+  .alert-banner p { font-size: 0.875rem; }
+  .faq-question { padding: 24px 24px; min-height: 56px; }
+  .faq-toggle { width: 40px; height: 40px; }
+  .location-tag { padding: 14px 24px; min-height: 44px; }
+  .location-tag span { font-size: 0.875rem; }
+  .testimonial-dot { width: 12px; height: 12px; }
+  .marquee-item { font-size: 0.938rem; }
+  .comp-cell { padding: 16px 20px; font-size: 0.875rem; }
 }
 @media (max-width: 480px) { .hero h1 { font-size: 2.4rem; } }
 </style>
@@ -1103,6 +1160,22 @@ footer {
   <a href="https://southhousecpa.taxdome.com/" target="_blank">Schedule Consultation →</a>
 </div>
 
+<!-- Mobile Call CTA (phone only) -->
+<style>
+  .mobile-call-fab {
+    display: none; position: fixed; bottom: 76px; right: 16px; z-index: 999;
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent);
+    color: var(--bg-primary); font-size: 1.3rem; text-decoration: none;
+    align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(201,169,110,0.4); transition: transform 0.3s ease;
+  }
+  .mobile-call-fab:hover { transform: scale(1.1); }
+  @media (max-width: 768px) { .mobile-call-fab { display: flex; } }
+</style>
+<a href="tel:+18659001234" class="mobile-call-fab" aria-label="Call SouthHouse CPA">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
 <script>
 // ═══ PRELOADER WITH COUNTER ═══
 let preloaderCount = 0;
@@ -1240,12 +1313,26 @@ function drawParticles() {
 }
 drawParticles();
 
-// ═══ SCROLL REVEAL ═══
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
+// ═══ SCROLL REVEAL (PROGRESSIVE ENHANCEMENT) ═══
+// Content is visible by default. We only enhance with animations
+// if IntersectionObserver is supported and working.
+try {
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('reveal-init');
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(el => observer.observe(el));
+    // Safety net: if any .reveal is still hidden after 4s, force-show everything
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 4000);
+  }
+} catch(e) {
+  // If anything fails, content stays visible (default state)
+  document.body.classList.remove('reveal-init');
+}
 
 // ═══ COUNTERS ═══
 document.querySelectorAll('.stat-number[data-target]').forEach(el => {
@@ -1299,12 +1386,23 @@ function goToSlide(n) {
 window.addEventListener('resize', () => { updateCardsPerView(); goToSlide(0); });
 setInterval(() => { goToSlide((currentSlide + 1) % totalSlides); }, 5000);
 
-// ═══ SMOOTH ANCHORS ═══
+// ═══ SMOOTH ANCHORS (with fallback) ═══
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const t = document.querySelector(this.getAttribute('href'));
-    if(t){t.scrollIntoView({behavior:'smooth',block:'start'}); document.getElementById('navLinks').classList.remove('open');}
+    const href = this.getAttribute('href');
+    if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); document.getElementById('navLinks').classList.remove('open'); return; }
+    const t = document.querySelector(href);
+    if (t) {
+      e.preventDefault();
+      document.getElementById('navLinks').classList.remove('open');
+      try {
+        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch(err) {
+        // Fallback for browsers without smooth scroll support
+        window.scrollTo(0, t.offsetTop);
+      }
+    }
+    // If target doesn't exist, let the browser handle it natively (no preventDefault)
   });
 });
 
