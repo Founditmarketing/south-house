@@ -235,8 +235,8 @@
   --bg-card: #131720;
   --bg-card-hover: #181d28;
   --text-primary: #e8e6e1;
-  --text-secondary: #9a9590;
-  --text-muted: #5c5752;
+  --text-secondary: #a8a39e;
+  --text-muted: #6b6560;
   --accent: #c9a96e;
   --accent-dim: #a08550;
   --accent-glow: rgba(201, 169, 110, 0.15);
@@ -250,10 +250,12 @@
   --sans: 'Libre Franklin', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans);
   font-weight: 300; line-height: 1.7; overflow-x: hidden; cursor: default;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 ::selection { background: var(--accent); color: var(--bg-primary); }
 
@@ -286,7 +288,7 @@ body {
 .preloader {
   position: fixed; inset: 0; background: var(--bg-primary); z-index: 10000;
   display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 28px;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .preloader-brand {
@@ -374,7 +376,7 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
   border: 1px solid rgba(201,169,110,0.15); border-radius: 100px;
   font-size: 0.63rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 48px;
-  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 1.8s forwards;
+  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 0.6s forwards;
   background: rgba(201,169,110,0.03);
 }
 .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease infinite; box-shadow: 0 0 12px rgba(201,169,110,0.4); }
@@ -398,7 +400,7 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
   background-size: 200% 100%;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: heroShimmer 3s ease-in-out 3.5s infinite;
+  animation: heroShimmer 3s ease-in-out 2.5s infinite;
   pointer-events: none;
 }
 @keyframes heroShimmer { 0%,100%{background-position:-200% center; opacity:0} 30%{opacity:1} 70%{opacity:1} 100%{background-position:200% center; opacity:0} }
@@ -416,17 +418,17 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
 .hero-rule {
   width: 64px; height: 1px; margin: 36px 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-bright), transparent);
-  opacity: 0; animation: fadeUp 0.6s ease 2.4s forwards;
+  opacity: 0; animation: fadeUp 0.6s ease 1.4s forwards;
 }
 
 .hero-sub {
   font-size: clamp(0.95rem, 1.5vw, 1.1rem); color: var(--text-secondary); font-weight: 300;
   max-width: 480px; line-height: 1.85;
-  opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease 2.6s forwards;
+  opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease 1.6s forwards;
 }
 .hero-actions {
   display: flex; gap: 20px; flex-wrap: wrap; margin-top: 44px;
-  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 2.9s forwards;
+  opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease 1.9s forwards;
 }
 
 /* Hero credential tag */
@@ -434,7 +436,7 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
   display: inline-flex; align-items: center; gap: 12px; margin-top: 36px;
   font-family: var(--sans); font-size: 0.63rem; font-weight: 400; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--text-muted);
-  opacity: 0; animation: fadeUp 0.8s ease 3.2s forwards;
+  opacity: 0; animation: fadeUp 0.8s ease 2.2s forwards;
 }
 .hero-credential::before {
   content: ''; width: 24px; height: 1px; background: var(--border-hover);
@@ -444,7 +446,7 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
 .hero-accent {
   position: absolute; right: clamp(48px, 8vw, 140px); top: 50%; transform: translateY(-50%);
   z-index: 1; pointer-events: none;
-  opacity: 0; animation: fadeUp 1s ease 3.5s forwards;
+  opacity: 0; animation: fadeUp 1s ease 2.4s forwards;
 }
 .hero-accent-mark {
   font-family: var(--serif); font-size: clamp(12rem, 20vw, 22rem); font-weight: 300;
@@ -463,7 +465,7 @@ canvas#heroParticles { position: absolute; inset: 0; width: 100%; height: 100%; 
 .hero-scroll {
   position: absolute; bottom: 36px; left: clamp(48px, 8vw, 120px);
   display: flex; align-items: center; gap: 16px;
-  opacity: 0; animation: fadeUp 0.8s ease 3.5s forwards;
+  opacity: 0; animation: fadeUp 0.8s ease 2.4s forwards;
 }
 .hero-scroll span { font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
 .scroll-line { width: 40px; height: 1px; background: var(--border); position: relative; overflow: hidden; }
@@ -1142,7 +1144,7 @@ footer {
     <div class="hero-rule"></div>
     <p class="hero-sub">Every return prepared personally by Steven Sorhus, CPA. No hand-offs, no back office, no surprises — just direct, expert service from anywhere in the world.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary magnetic-btn">Schedule a Consultation →</a>
+      <a href="https://calendly.com/sorhuscpa" class="btn-primary magnetic-btn" target="_blank" rel="noopener">Schedule a Consultation →</a>
       <a href="#services" class="btn-ghost">Explore Services</a>
     </div>
     <div class="hero-credential">M.Acc. · Licensed CPA · Knoxville, TN</div>
@@ -1495,7 +1497,7 @@ footer {
     <div class="section-label" style="justify-content:center;">Let's Talk</div>
     <h2 class="section-title">Ready for a CPA who<br><em>actually knows your name?</em></h2>
     <p class="section-desc">Schedule a consultation and experience what personal, expert-level service looks like.</p>
-    <a href="https://southhousecpa.taxdome.com/" class="btn-primary magnetic-btn" target="_blank">Schedule Consultation →</a>
+    <a href="https://calendly.com/sorhuscpa" class="btn-primary magnetic-btn" target="_blank" rel="noopener">Schedule Consultation →</a>
     <div class="cta-contact-info">
       <div class="cta-contact-item"><span class="cta-contact-label">Location</span><span class="cta-contact-value">Knoxville, TN (Remote)</span></div>
       <div class="cta-contact-item"><span class="cta-contact-label">Founded</span><span class="cta-contact-value">2011</span></div>
@@ -1522,7 +1524,7 @@ footer {
 
 <!-- Mobile CTA -->
 <div class="mobile-cta" id="mobileCta">
-  <a href="https://southhousecpa.taxdome.com/" target="_blank">Schedule Consultation →</a>
+  <a href="https://calendly.com/sorhuscpa" target="_blank" rel="noopener">Schedule Consultation →</a>
 </div>
 
 <!-- Mobile Call CTA (phone only) -->
@@ -1547,17 +1549,17 @@ let preloaderCount = 0;
 const counterEl = document.getElementById('preloaderCounter');
 const barEl = document.getElementById('preloaderBar');
 const preloaderInterval = setInterval(() => {
-  preloaderCount += Math.random() * 8 + 2;
+  preloaderCount += Math.random() * 15 + 5;
   if (preloaderCount >= 100) preloaderCount = 100;
   counterEl.textContent = Math.floor(preloaderCount);
   barEl.style.width = preloaderCount + '%';
   if (preloaderCount >= 100) clearInterval(preloaderInterval);
-}, 60);
+}, 40);
 window.addEventListener('load', () => {
   preloaderCount = 100;
   counterEl.textContent = '100';
   barEl.style.width = '100%';
-  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+  setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 200);
 });
 
 // ═══ SPLIT WORD HERO ANIMATION ═══
@@ -1572,7 +1574,7 @@ function processNode(node) {
     if (child.nodeType === 3) {
       child.textContent.split(/(\s+)/).forEach(part => {
         if (part.trim()) {
-          result += `<span class="hero-word" style="animation-delay:${1.8 + wordIndex * 0.12}s">${part}</span>`;
+          result += `<span class="hero-word" style="animation-delay:${0.6 + wordIndex * 0.1}s">${part}</span>`;
           wordIndex++;
         } else { result += part; }
       });
@@ -1581,7 +1583,7 @@ function processNode(node) {
       result += '<em>';
       child.textContent.split(/(\s+)/).forEach(part => {
         if (part.trim()) {
-          result += `<span class="hero-word" style="animation-delay:${1.8 + wordIndex * 0.12}s">${part}</span>`;
+          result += `<span class="hero-word" style="animation-delay:${0.6 + wordIndex * 0.1}s">${part}</span>`;
           wordIndex++;
         } else { result += part; }
       });
@@ -1655,7 +1657,7 @@ const ctx = canvas.getContext('2d');
 let particles = [];
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 35; i++) {
   particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
     vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
     size: Math.random()*1.5+0.5, opacity: Math.random()*0.5+0.1 });
@@ -1670,8 +1672,8 @@ function drawParticles() {
     ctx.fillStyle=`rgba(201,169,110,${p.opacity})`; ctx.fill();
     for(let j=i+1;j<particles.length;j++){
       const dx=p.x-particles[j].x,dy=p.y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);
-      ctx.strokeStyle=`rgba(201,169,110,${0.06*(1-dist/120)})`;ctx.lineWidth=0.5;ctx.stroke();}
+      if(dist<100){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);
+      ctx.strokeStyle=`rgba(201,169,110,${0.06*(1-dist/100)})`;ctx.lineWidth=0.5;ctx.stroke();}
     }
   });
   requestAnimationFrame(drawParticles);
