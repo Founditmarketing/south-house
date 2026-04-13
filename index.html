@@ -1145,10 +1145,33 @@ footer {
     <a href="https://southhousecpa.taxdome.com/login" target="_blank" rel="noopener" onclick="document.getElementById('navLinks').classList.remove('open')">Client Portal</a>
     <a href="#contact" class="nav-cta" onclick="document.getElementById('navLinks').classList.remove('open')">Get Started</a>
   </div>
-  <div class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+  <div class="nav-toggle" id="navToggle" aria-label="Open menu">
     <span></span><span></span><span></span>
   </div>
 </nav>
+<script>
+(function() {
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    var isOpen = links.classList.contains('open');
+    if (isOpen) {
+      links.classList.remove('open');
+      links.style.cssText = '';
+    } else {
+      links.classList.add('open');
+      links.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0c10;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:60px 24px;';
+    }
+  });
+  // Close button and nav link clicks
+  links.querySelectorAll('a, .nav-close').forEach(function(el) {
+    el.addEventListener('click', function() {
+      links.classList.remove('open');
+      links.style.cssText = '';
+    });
+  });
+})();
+</script>
 
 <main id="main-content">
 <!-- Hero -->
