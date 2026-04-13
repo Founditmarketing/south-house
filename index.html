@@ -325,10 +325,13 @@ nav.scrolled {
 .nav-brand span { color: var(--text-muted); font-weight: 300; }
 .nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links.open {
-  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-  background: #0a0c10 !important; z-index: 1000 !important;
+  position: fixed !important;
+  top: 0 !important; left: 0 !important;
+  width: 100vw !important; height: 100vh !important;
+  background: #0a0c10 !important; z-index: 10000 !important;
   flex-direction: column !important; justify-content: center !important;
   gap: 32px !important; padding: 60px 24px !important;
+  margin: 0 !important;
 }
 .nav-links a {
   font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
@@ -1160,7 +1163,7 @@ footer {
       links.style.cssText = '';
     } else {
       links.classList.add('open');
-      links.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0c10;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:60px 24px;';
+      links.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0a0c10;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:60px 24px;';
     }
   });
   // Close button and nav link clicks
