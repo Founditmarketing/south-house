@@ -324,6 +324,12 @@ nav.scrolled {
 }
 .nav-brand span { color: var(--text-muted); font-weight: 300; }
 .nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links.open {
+  position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+  background: #0a0c10 !important; z-index: 1000 !important;
+  flex-direction: column !important; justify-content: center !important;
+  gap: 32px !important; padding: 60px 24px !important;
+}
 .nav-links a {
   font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; position: relative;
