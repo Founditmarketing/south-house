@@ -312,9 +312,10 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 20px 48px; display: flex; align-items: center; justify-content: space-between;
   transition: all 0.4s ease;
+  background: rgba(10,12,16,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
 nav.scrolled {
-  background: rgba(10,12,16,0.92); backdrop-filter: blur(20px);
+  background: rgba(10,12,16,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   padding: 14px 48px; border-bottom: 1px solid var(--border);
 }
 .nav-brand {
