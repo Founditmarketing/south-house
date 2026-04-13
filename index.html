@@ -1016,9 +1016,11 @@ footer {
   nav { padding: 16px 24px; }
   nav.scrolled { padding: 12px 24px; }
   .nav-links {
-    display: none; position: fixed; inset: 0; background: rgba(10,12,16,0.98);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); flex-direction: column; align-items: center;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: #0a0c10; /* solid opaque — no transparency */
+    flex-direction: column; align-items: center;
     justify-content: center; gap: 32px; z-index: 1000;
+    display: none;
   }
   .nav-links.open { display: flex; }
   .nav-links a { font-size: 1rem; min-height: 44px; display: flex; align-items: center; }
