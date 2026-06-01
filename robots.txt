@@ -1,13 +1,34 @@
-# SouthHouse CPA LLC - robots.txt
+# SouthHouse CPA LLC — robots.txt
 # https://southhousecpa.com
 
 User-agent: *
 Allow: /
 Disallow: /southhouse-v3.html
+Disallow: /api/
 
 # Sitemaps
 Sitemap: https://southhousecpa.com/sitemap.xml
 
+# LLMs.txt
+# https://llmstxt.org
+# Machine-readable context for AI assistants and LLMs
+# See: https://southhousecpa.com/llms.txt
+
 # Crawl-delay for polite crawling
 User-agent: Bingbot
 Crawl-delay: 5
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
