@@ -68,7 +68,7 @@ module.exports = async function handler(req, res) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'SouthHouse CPA <hello@southhousecpa.com>',
-      to: ['Jason@founditmarketing.com'],
+      to: ['southhousecpa@gmail.com'],
       reply_to: email.trim(),
       subject: `New Inquiry from ${name.trim()} — SouthHouse CPA`,
       html: htmlBody,
