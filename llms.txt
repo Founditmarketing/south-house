@@ -1,0 +1,60 @@
+# SouthHouse CPA LLC
+> A fully remote CPA firm founded in 2011 by Steven Sorhus, CPA. Every return prepared personally — no hand-offs, no back office, no surprises.
+
+## About
+SouthHouse CPA LLC is a solo, fully remote Certified Public Accounting practice based in Knoxville, Tennessee. Founded by Steven Sorhus, M.Acc., CPA, the firm has been serving clients since 2011 and has operated entirely remotely since 2017. The firm serves clients across all 50 U.S. states and internationally, including Spain, Switzerland, Hong Kong, St. Kitts, and Scotland.
+
+What makes SouthHouse CPA unique is that every piece of work — from initial consultation to final filing — is completed personally by Steven Sorhus. There is no back office, no associates, and no hand-offs. The person you speak with is the person who prepares your returns.
+
+## Founder
+- **Name**: Steven Sorhus, M.Acc., CPA
+- **Credentials**: Master of Accountancy (Truman State University), Licensed Certified Public Accountant
+- **Career**: Began in 2008 at a mid-sized regional firm auditing municipalities and serving international clients. Founded SouthHouse CPA in 2011.
+- **Location**: Knoxville, Tennessee
+
+## Services
+- **Tax Preparation**: Individual, business, and complex returns. Multi-state and international filing. Year-round proactive tax planning.
+- **Bookkeeping & Payroll**: Cloud-based financial tracking and compliant payroll processing — provided in-house or outsourced depending on the client's situation.
+- **Advisory & Strategy**: Entity selection and structuring, growth planning, compliance strategy, and business advisory services.
+- **IRS Representation**: Identifying phishing scams vs. legitimate IRS notices. Direct representation for audits, notices, and correspondence.
+
+## Process
+1. **Initial Consultation**: A brief conversation to understand the client's situation, review prior returns, and assess scope of work. No obligation.
+2. **Estimate & Agreement**: A clear fee estimate based on complexity. No work begins until both parties agree on scope and fee.
+3. **Preparation & Delivery**: All work completed personally by Steven Sorhus. Documents exchanged securely through an encrypted client portal.
+4. **Year-Round Support**: Proactive planning, IRS correspondence, and ongoing advisory — not just during tax season.
+
+## Key Differentiators
+- **Direct access**: No secretary or answering service. Calls and emails go directly to Steven's cell phone.
+- **Personally prepared**: Every return, every engagement — handled by the CPA you speak with, not a back-office associate.
+- **Managed growth**: Client base is intentionally capped to ensure quality is never compromised by volume.
+- **Fee transparency**: Clear estimates provided before work begins. If scope changes, fees are renegotiated openly.
+
+## Pricing
+- **Monthly Retainer**: For ongoing engagements (bookkeeping, payroll, advisory). Estimated after initial interview.
+- **Per-Engagement**: For most individual clients. Estimate provided during or shortly after the initial consultation. One invoice upon completion.
+
+## Frequently Asked Questions
+- **Can you help if I don't live near Knoxville?** Yes. SouthHouse CPA has been fully remote since 2017 and serves clients across the U.S. and internationally. All documents are exchanged through a secure portal, and meetings happen virtually.
+- **Will anyone else work on my account?** No. Every piece of work is completed personally by Steven Sorhus, CPA. There is no back office, no associates, and no hand-offs.
+- **How quickly will you respond?** Calls and emails go directly to Steven's cell phone and are answered as soon as practical — typically the same day.
+- **How do I know what I'll pay?** You receive a clear estimate after an initial interview. No work begins until both parties agree on scope and fee.
+- **I received a suspicious IRS letter — can you help?** Yes. SouthHouse CPA helps identify phishing attacks vs. legitimate correspondence and handles legitimate IRS notices directly on your behalf.
+
+## History
+- **2011**: Founded with an old desk in a basement and a self-built PC in Kirksville, Missouri.
+- **2013**: Moved to a professional office on Kirksville's main street through a new partnership.
+- **2016**: Followed family to the Caribbean (St. Kitts), then to a village outside Edinburgh, Scotland. All clients transitioned to digital workflows — every single one stayed.
+- **Present**: Based in Knoxville, Tennessee. Serving clients across the U.S. and internationally. Fully remote by design, not by circumstance.
+
+## Contact
+- **Website**: https://southhousecpa.com
+- **Email**: hello@southhousecpa.com
+- **Schedule a Consultation**: https://calendly.com/sorhuscpa
+- **Client Portal**: https://southhousecpa.taxdome.com/login
+- **Location**: Knoxville, TN (Fully Remote)
+
+## Technical
+- **Domain**: southhousecpa.com
+- **Sitemap**: https://southhousecpa.com/sitemap.xml
+- **Robots**: https://southhousecpa.com/robots.txt
