@@ -2,8 +2,5 @@
   "private": true,
   "name": "southhouse-cpa",
   "version": "1.0.0",
-  "description": "SouthHouse CPA LLC — Website",
-  "dependencies": {
-    "resend": "^4.0.0"
-  }
+  "description": "SouthHouse CPA LLC — Website"
 }
